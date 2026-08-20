@@ -1,0 +1,27 @@
+# Core scientific stack
+numpy>=1.26
+pandas>=2.2
+scipy>=1.11
+scikit-learn>=1.4
+
+# Gradient boosting
+xgboost>=2.0
+
+# Explainable AI
+shap>=0.45
+lime>=0.2.0.1
+
+# Visualisation
+matplotlib>=3.8
+seaborn>=0.13
+
+# Demo web app
+streamlit>=1.36
+
+# Model persistence
+joblib>=1.3
+
+# Notebook execution (research notebook deliverable)
+nbformat>=5.9
+nbclient>=0.9
+ipykernel>=6.29
