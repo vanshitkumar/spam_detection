@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T06:58:35+00:00",
+  "generated_at": "2026-10-30T05:30:38+00:00",
   "modalities": {
     "sms": {
       "meta": {
@@ -43,7 +43,7 @@
             "roc_auc": 0.9941319828539823
           }
         },
-        "trained_at": "2026-08-20T06:57:13+00:00"
+        "trained_at": "2026-10-30T05:27:53+00:00"
       },
       "models": {
         "Logistic Regression": {
@@ -164,7 +164,7 @@
             "roc_auc": 0.9982596736557838
           }
         },
-        "trained_at": "2026-08-20T06:58:31+00:00"
+        "trained_at": "2026-10-30T05:30:28+00:00"
       },
       "models": {
         "Logistic Regression": {
