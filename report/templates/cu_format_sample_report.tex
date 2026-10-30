@@ -1,0 +1,855 @@
+%==============================================================================
+%  UG PROJECT REPORT  --  Chandigarh University format
+%  Compile with: pdfLaTeX  (Overleaf: Menu -> Compiler -> pdfLaTeX)
+%  Compile 2-3 times so the Table of Contents / List of Figures fill in.
+%
+%  IMAGES TO UPLOAD (drag into the Overleaf project, same folder as this file):
+%     cu-logo.png     <- Chandigarh University logo (used on cover + certificate)
+%  If the file is missing the document still compiles and shows a grey box.
+%==============================================================================
+\documentclass[12pt,a4paper]{report}
+
+%------------------------- page geometry (1 inch all round) -------------------
+\usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in]{geometry}
+% For a binding margin instead, use:
+% \usepackage[a4paper,top=1in,bottom=1in,left=1.25in,right=1in]{geometry}
+
+%------------------------- fonts: Times New Roman clone -----------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}          % Nimbus Roman = metrically identical to Times New Roman
+
+%------------------------- spacing, layout, tools -----------------------------
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage[font={bf,footnotesize},labelsep=colon,justification=centering,skip=6pt]{caption}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks,bookmarksnumbered]{hyperref}   % keep hyperref last
+
+\onehalfspacing                        % 1.5 line spacing for the general text
+\setlength{\parindent}{0pt}            % Word-style: no first-line indent
+\setlength{\parskip}{6pt}
+\setlist{nosep,topsep=4pt,itemsep=3pt,leftmargin=1.2cm}
+\renewcommand{\arraystretch}{1.3}
+% ragged-right paragraph column for tables:  L{3cm}  instead of  p{3cm}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Word does not hyphenate by default -- switch it off so the justification matches
+\frenchspacing          % Word-style: no extra space after a full stop
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\tolerance=9999
+\emergencystretch=3em
+
+%------------------------- exact font sizes from the format sheet -------------
+\newcommand{\sixteen}{\fontsize{16}{19.2}\selectfont}   % chapter names
+\newcommand{\fourteen}{\fontsize{14}{21}\selectfont}    % main headings
+\newcommand{\twelve}{\fontsize{12}{18}\selectfont}      % body / sub-headings
+\newcommand{\eighteen}{\fontsize{18}{27}\selectfont}    % report title
+
+%------------------------- CHAPTER: 16pt, bold, centered ----------------------
+\titleformat{\chapter}[display]
+  {\filcenter\bfseries\sixteen}
+  {CHAPTER \thechapter.}
+  {6pt}
+  {}
+\titlespacing*{\chapter}{0pt}{-24pt}{22pt}
+
+% unnumbered chapters (REFERENCES, APPENDIX, USER MANUAL ...)
+\titleformat{name=\chapter,numberless}[display]
+  {\filcenter\bfseries\sixteen}{}{0pt}{}
+\titlespacing*{name=\chapter,numberless}{0pt}{-24pt}{22pt}
+
+%------------------------- HEADING: 14pt, bold, left ---------------------------
+\titleformat{\section}[hang]
+  {\bfseries\fourteen}
+  {\makebox[3.4em][l]{\thesection.}}{0pt}{}
+\titlespacing*{\section}{0pt}{16pt}{8pt}
+
+%------------------------- SUB-HEADING: 12pt, bold, left -----------------------
+\titleformat{\subsection}[hang]
+  {\bfseries\twelve}
+  {\makebox[3.4em][l]{\thesubsection.}}{0pt}{}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+
+\titleformat{\subsubsection}[hang]
+  {\bfseries\twelve}
+  {\makebox[3.9em][l]{\thesubsubsection.}}{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{10pt}{6pt}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+%------------------------- TABLE OF CONTENTS styling ---------------------------
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\cfttoctitlefont}{\bfseries\sixteen}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{22pt}
+
+% "Chapter 1. ....... 4"
+\renewcommand{\cftchappresnum}{Chapter\ }
+\renewcommand{\cftchapaftersnum}{.}
+\setlength{\cftchapnumwidth}{6.2em}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\setlength{\cftbeforechapskip}{8pt}
+
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+\renewcommand{\cftsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+\setlength{\cftsecnumwidth}{3.2em}
+\setlength{\cftbeforesecskip}{6pt}
+
+\renewcommand{\cftsubsecfont}{\bfseries}
+\renewcommand{\cftsubsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecpagefont}{\bfseries}
+\setlength{\cftsubsecnumwidth}{4.0em}
+\setlength{\cftbeforesubsecskip}{6pt}
+
+%------------------------- LIST OF FIGURES / TABLES styling --------------------
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\cftloftitlefont}{\bfseries\sixteen}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{22pt}
+\renewcommand{\cftfigpresnum}{Figure\ }
+\renewcommand{\cftfigaftersnum}{:}
+\setlength{\cftfignumwidth}{5.6em}
+\renewcommand{\cftfigfont}{\bfseries}
+\renewcommand{\cftfigpagefont}{\bfseries}
+\renewcommand{\cftfigleader}{\bfseries\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforefigskip}{8pt}
+
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\cftlottitlefont}{\bfseries\sixteen}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{22pt}
+\renewcommand{\cfttabpresnum}{Table\ }
+\renewcommand{\cfttabaftersnum}{:}
+\setlength{\cfttabnumwidth}{5.2em}
+\renewcommand{\cfttabfont}{\bfseries}
+\renewcommand{\cfttabpagefont}{\bfseries}
+\renewcommand{\cfttableader}{\bfseries\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforetabskip}{8pt}
+
+% centre the three list titles (tocloft's own \hfill trick loses to \parfillskip)
+\makeatletter
+\renewcommand{\@cftmaketoctitle}{%
+  \addpenalty\@secpenalty \vspace*{\cftbeforetoctitleskip}\@cftpagestyle
+  {\interlinepenalty\@M {\centering\cfttoctitlefont\contentsname\par}%
+   \cftmarktoc \nobreak \vskip\cftaftertoctitleskip \@afterheading}}
+\renewcommand{\@cftmakeloftitle}{%
+  \addpenalty\@secpenalty \vspace*{\cftbeforeloftitleskip}\@cftpagestyle
+  {\interlinepenalty\@M {\centering\cftloftitlefont\listfigurename\par}%
+   \cftmarklof \nobreak \vskip\cftafterloftitleskip \@afterheading}}
+\renewcommand{\@cftmakelottitle}{%
+  \addpenalty\@secpenalty \vspace*{\cftbeforelottitleskip}\@cftpagestyle
+  {\interlinepenalty\@M {\centering\cftlottitlefont\listtablename\par}%
+   \cftmarklot \nobreak \vskip\cftafterlottitleskip \@afterheading}}
+\makeatother
+
+%------------------------- helper: logo with safe fallback ---------------------
+\newcommand{\culogo}[1][3.15in]{%
+  \IfFileExists{cu-logo.png}
+    {\includegraphics[width=#1]{cu-logo.png}}
+    {\fbox{\parbox[c][1.1in][c]{#1}{\centering\small\itshape
+      upload \texttt{cu-logo.png}\\to the project folder}}}%
+}
+
+%------------------------- helper: placeholder figure box ----------------------
+% Replace \phbox{...} with \includegraphics[width=...]{yourfile.png}
+\newcommand{\phbox}[2][0.72\textwidth]{%
+  \fbox{\parbox[c][#2][c]{#1}{\centering\fontsize{34}{40}\selectfont Figure}}%
+}
+
+%------------------------- front-matter page helper ----------------------------
+\newcommand{\frontchapter}[1]{%
+  \chapter*{#1}\phantomsection\addcontentsline{toc}{chapter}{#1}%
+}
+
+%==============================================================================
+%  >>>>>>>>>>>>>>>>>>>>>  EDIT YOUR DETAILS HERE  <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+%==============================================================================
+\newcommand{\ProjectTitle}{IOT-BASED SMART ENERGY MONITORING SYSTEM}
+\newcommand{\CandidateOne}{John Doe (21BEE1001)}
+\newcommand{\CandidateTwo}{Jane Doe (21BEE1002)}
+\newcommand{\DegreeName}{BACHELOR OF ENGINEERING}
+\newcommand{\BranchName}{ELECTRONICS ENGINEERING}
+\newcommand{\MonthYear}{MAY 2026}
+\newcommand{\HoDName}{Dr. A. B. Sharma}
+\newcommand{\SupervisorName}{Dr. C. D. Verma}
+\newcommand{\SupervisorDesignation}{Associate Professor}
+\newcommand{\DeptName}{Department of Electronics \& Communication Engineering}
+%==============================================================================
+
+\begin{document}
+
+%==============================================================================
+%  COVER / TITLE PAGE
+%==============================================================================
+\pagestyle{empty}
+\pagenumbering{roman}
+
+\begingroup
+\setlength{\parskip}{0pt}
+\singlespacing
+\begin{center}
+\vspace*{0.20in}
+
+{\bfseries\eighteen \ProjectTitle\par}
+
+\vspace{0.50in}
+{\bfseries\fourteen A PROJECT REPORT\par}
+
+\vspace{0.50in}
+{\bfseries\itshape\fourteen Submitted by\par}
+
+\vspace{0.45in}
+{\bfseries\sixteen \CandidateOne\par}
+\vspace{0.12in}
+{\bfseries\sixteen \CandidateTwo\par}
+
+\vspace{0.50in}
+{\bfseries\itshape\fourteen in partial fulfillment for the award of the degree of\par}
+
+\vspace{0.50in}
+{\bfseries\sixteen \DegreeName\par}
+
+\vspace{0.25in}
+{\bfseries\fourteen IN\par}
+
+\vspace{0.25in}
+{\fourteen \BranchName\par}
+
+\vspace{0.45in}
+\culogo
+
+\vspace{0.12in}
+{\bfseries\fourteen Chandigarh University\par}
+
+\vspace{0.35in}
+{\fourteen \MonthYear\par}
+
+\end{center}
+\endgroup
+\clearpage
+
+%==============================================================================
+%  BONAFIDE CERTIFICATE
+%==============================================================================
+\begin{center}
+\vspace*{0.1in}
+\culogo
+
+\vspace{0.35in}
+{\bfseries\sixteen BONAFIDE CERTIFICATE\par}
+\end{center}
+
+\vspace{0.40in}
+
+{\fourteen
+Certified that this project report \textbf{``\ProjectTitle''} is the bonafide
+work of \textbf{``\CandidateOne{} and \CandidateTwo''} who carried out the
+project work under my/our supervision.\par}
+
+\vspace{0.55in}
+
+\begin{singlespace}
+\noindent
+\begin{minipage}[t]{0.47\textwidth}
+\raggedright
+\fourteen
+$<<$Signature of the HoD$>>$\\[0.45in]
+\textbf{SIGNATURE}\\[0.18in]
+\HoDName\\[0.10in]
+\textbf{HEAD OF THE DEPARTMENT}\\[0.10in]
+\DeptName
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\textwidth}
+\raggedright
+\fourteen
+$<<$Signature of the Supervisor$>>$\\[0.45in]
+\textbf{SIGNATURE}\\[0.18in]
+\SupervisorName\\[0.10in]
+\textbf{SUPERVISOR}\\[0.10in]
+\SupervisorDesignation\\[0.10in]
+\DeptName
+\end{minipage}
+\end{singlespace}
+
+\vspace{0.50in}
+
+{\fourteen Submitted for the project viva-voce examination held on
+\rule{1.6in}{0.4pt}\par}
+
+\vspace{0.55in}
+
+\begin{singlespace}
+\noindent
+\begin{minipage}[t]{0.47\textwidth}
+\raggedright\bfseries\fourteen INTERNAL EXAMINER
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\textwidth}
+\raggedright\bfseries\fourteen EXTERNAL EXAMINER
+\end{minipage}
+\end{singlespace}
+
+\clearpage
+
+%==============================================================================
+%  ACKNOWLEDGEMENT
+%==============================================================================
+\begin{center}
+\vspace*{0.1in}
+{\bfseries\sixteen ACKNOWLEDGEMENT\par}
+\end{center}
+\vspace{0.3in}
+
+We would like to express our sincere gratitude to our supervisor,
+\SupervisorName, \SupervisorDesignation, \DeptName, Chandigarh University,
+for the continuous guidance, patience and encouragement extended throughout
+the course of this project work.
+
+We are equally thankful to \HoDName, Head of the Department, for providing the
+laboratory facilities and the academic environment that made this work
+possible. Our thanks also go to the faculty members and technical staff of the
+department for their timely help during fabrication and testing.
+
+Finally, we thank our families and friends for their constant support and
+motivation.
+
+\vspace{0.6in}
+\hfill\begin{minipage}{0.42\textwidth}
+\raggedright
+\CandidateOne\\
+\CandidateTwo
+\end{minipage}
+
+\clearpage
+
+%==============================================================================
+%  TABLE OF CONTENTS
+%==============================================================================
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\clearpage
+
+%==============================================================================
+%  From here the roman page numbers become visible: i, ii, iii ...
+%==============================================================================
+\pagestyle{plain}
+\setcounter{page}{1}
+
+\phantomsection\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\clearpage
+
+\phantomsection\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\clearpage
+
+%==============================================================================
+%  ABSTRACT
+%==============================================================================
+\frontchapter{ABSTRACT}
+
+Rising electricity demand in residential and small commercial buildings has made
+appliance-level energy visibility a practical necessity rather than a
+convenience. Conventional energy meters report only aggregate consumption at the
+end of a billing cycle, which gives the consumer no actionable insight into
+where the energy is actually going.
+
+This project presents the design and implementation of an IoT-based smart energy
+monitoring system capable of measuring voltage, current, power factor and
+cumulative energy at the individual load level. The system uses a
+non-invasive current transformer for sensing, an ESP32 microcontroller for
+acquisition and edge processing, and MQTT over Wi-Fi for telemetry to a
+cloud dashboard. A moving-window algorithm is applied at the edge to reduce
+transmitted payload by grouping stable readings.
+
+The prototype was tested against a calibrated reference meter across a load
+range of 40~W to 2200~W. Measured energy readings tracked the reference within
+$\pm$2.1\% and the dashboard latency remained under 3~seconds. The results
+confirm that a low-cost, retrofittable monitoring node can deliver
+metering-grade visibility without modification of existing wiring.
+
+\vspace{12pt}
+\textbf{Keywords:} Internet of Things, energy monitoring, ESP32, MQTT,
+non-invasive sensing, smart metering.
+
+\clearpage
+
+%==============================================================================
+%  GRAPHICAL ABSTRACT
+%==============================================================================
+\frontchapter{GRAPHICAL ABSTRACT}
+
+\vspace{0.4in}
+\begin{center}
+\phbox[0.85\textwidth]{3.2in}
+\end{center}
+
+\clearpage
+
+%==============================================================================
+%  ABBREVIATIONS
+%==============================================================================
+\frontchapter{ABBREVIATIONS}
+
+\begin{singlespace}
+\begin{center}
+\begin{tabular}{@{}p{3.5cm}p{9.5cm}@{}}
+\textbf{ADC}   & Analog to Digital Converter \\
+\textbf{API}   & Application Programming Interface \\
+\textbf{CT}    & Current Transformer \\
+\textbf{IoT}   & Internet of Things \\
+\textbf{MQTT}  & Message Queuing Telemetry Transport \\
+\textbf{PCB}   & Printed Circuit Board \\
+\textbf{RMS}   & Root Mean Square \\
+\textbf{SoC}   & System on Chip \\
+\textbf{THD}   & Total Harmonic Distortion \\
+\end{tabular}
+\end{center}
+\end{singlespace}
+
+\clearpage
+
+%==============================================================================
+%  SYMBOLS
+%==============================================================================
+\frontchapter{SYMBOLS}
+
+\begin{singlespace}
+\begin{center}
+\begin{tabular}{@{}p{3.5cm}p{9.5cm}@{}}
+$V_{rms}$   & Root mean square voltage (V) \\
+$I_{rms}$   & Root mean square current (A) \\
+$P$         & Active power (W) \\
+$S$         & Apparent power (VA) \\
+$\cos\phi$  & Power factor \\
+$E$         & Cumulative energy (kWh) \\
+$f$         & Supply frequency (Hz) \\
+$\varepsilon$ & Relative measurement error (\%) \\
+\end{tabular}
+\end{center}
+\end{singlespace}
+
+\clearpage
+
+%==============================================================================
+%  MAIN TEXT
+%==============================================================================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%------------------------------------------------------------------------------
+\chapter{INTRODUCTION}
+
+\section{Client Identification/Need Identification/Identification of relevant Contemporary issue}
+
+\begin{itemize}
+  \item Justify that the issue at hand exists through statistics and documentation.
+  \item It is a problem that someone needs resolution for (consultancy problem).
+  \item The need is justified through a survey or reported after a survey.
+  \item Relevant contemporary issue documented in reports of some agencies.
+\end{itemize}
+
+According to the Central Electricity Authority, domestic consumption accounted
+for roughly one quarter of national electricity sales in the last reported
+year, and per-capita consumption has grown steadily over the past decade. A
+campus survey of 120 households conducted for this project found that 78\% of
+respondents could not name their single largest domestic load, and 64\%
+reported that their monthly bill regularly surprised them.
+
+The client for this work is the campus facilities office, which maintains
+several hostel blocks with no sub-metering. Their stated need is per-block and
+per-appliance visibility that can be retrofitted without rewiring.
+
+\section{Identification of Problem}
+
+Occupants and facility managers currently have no mechanism to attribute energy
+consumption to individual loads within a building, and therefore cannot
+identify, prioritise or verify any reduction measure they attempt.
+
+\section{Identification of Tasks}
+
+The work was decomposed into the following tasks:
+
+\begin{enumerate}
+  \item Survey of existing metering practice and literature on non-invasive sensing.
+  \item Selection of sensing elements and specification of accuracy targets.
+  \item Design of the acquisition hardware and the edge firmware.
+  \item Design of the communication stack and cloud dashboard.
+  \item Calibration against a reference meter and error characterisation.
+  \item Validation across the full rated load range and documentation.
+\end{enumerate}
+
+\section{Timeline}
+
+The project was executed over two semesters. The schedule is represented as a
+Gantt chart in Figure~\ref{fig:gantt}, showing overlap between the firmware and
+dashboard workstreams during weeks 9 to 14.
+
+\begin{figure}[H]
+  \centering
+  \phbox{2.6in}
+  \caption{Gantt chart of the project schedule}
+  \label{fig:gantt}
+\end{figure}
+
+\section{Organization of the Report}
+
+Chapter~2 reviews the reported literature and closes with the formal problem
+definition and objectives. Chapter~3 covers concept generation, the design
+constraints considered, the two alternative design flows evaluated and the
+justification for the selected design. Chapter~4 presents the implementation
+using modern engineering tools together with the test and validation results.
+Chapter~5 concludes the work and identifies the way ahead.
+
+%------------------------------------------------------------------------------
+\chapter{LITERATURE REVIEW/BACKGROUND STUDY}
+
+\section{Timeline of the reported problem}
+
+Interest in appliance-level energy disaggregation dates to the late 1980s, when
+non-intrusive load monitoring was first proposed as an alternative to
+per-circuit metering. Commercial interest accelerated after 2010 with the
+availability of low-cost wireless microcontrollers, and standardisation efforts
+around lightweight messaging protocols followed shortly after.
+
+\section{Proposed solutions}
+
+Reported approaches fall into three broad families: single-point disaggregation
+from the service entry, distributed plug-level metering, and hybrid schemes
+that combine a coarse service-entry meter with a small number of distributed
+nodes.
+
+\subsection{Single-point disaggregation}
+
+These systems infer appliance states from transient signatures observed at the
+service entry. They require only one sensing point but depend heavily on
+training data and degrade when several similar loads operate simultaneously.
+
+\subsection{Distributed plug-level metering}
+
+Each outlet carries its own meter. Accuracy is high and no inference is
+required, but cost scales linearly with the number of monitored points and
+installation is intrusive.
+
+\section{Bibliometric analysis}
+
+A comparison of the reviewed approaches on key features, effectiveness and
+drawbacks is summarised in Table~\ref{tab:biblio}.
+
+\begin{table}[H]
+  \centering
+  \caption{Comparison of reported monitoring approaches}
+  \label{tab:biblio}
+  \begin{tabular}{|L{3.2cm}|L{3.4cm}|L{3.0cm}|L{3.0cm}|}
+    \hline
+    \textbf{Approach} & \textbf{Key feature} & \textbf{Effectiveness} & \textbf{Drawback} \\
+    \hline
+    Single-point NILM & One sensing point & 70--85\% accuracy & Needs training data \\
+    \hline
+    Plug-level meters & Direct measurement & $>$98\% accuracy & High unit cost \\
+    \hline
+    Hybrid scheme & Few nodes + inference & 90--95\% accuracy & Moderate complexity \\
+    \hline
+    Smart main meter & Utility grade & Billing accurate & No appliance detail \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Review Summary}
+
+The literature indicates that a small number of well-placed distributed nodes
+recovers most of the accuracy of full plug-level metering at a fraction of the
+cost. This project therefore adopts the hybrid position, with non-invasive
+sensing to keep installation retrofittable.
+
+\section{Problem Definition}
+
+To design, build and validate a retrofittable monitoring node that reports
+voltage, current, active power and cumulative energy for an individual load to
+a cloud dashboard, with measurement error within $\pm$3\% over a 40~W to
+2200~W range. The work does not include appliance classification, utility
+billing integration, or three-phase operation.
+
+\section{Goals/Objectives}
+
+\begin{itemize}
+  \item Achieve energy measurement error within $\pm$3\% against a reference meter.
+  \item Keep end-to-end dashboard latency below 5~seconds.
+  \item Restrict per-node bill of materials to under Rs.~1,500.
+  \item Install without breaking or rewiring the existing circuit.
+  \item Sustain 72~hours of continuous unattended logging without data loss.
+\end{itemize}
+
+%------------------------------------------------------------------------------
+\chapter{DESIGN FLOW/PROCESS}
+
+\section{Evaluation \& Selection of Specifications/Features}
+
+The features identified in the literature were critically evaluated and scored
+against the client need. Retained features were non-invasive current sensing,
+true RMS computation, local buffering during network loss, and over-the-air
+firmware update. Rejected features were appliance classification and on-device
+display, both of which added cost without addressing the stated need.
+
+\section{Design Constraints}
+
+\begin{itemize}
+  \item \textbf{Regulations:} enclosure and clearances per IS~732 wiring practice.
+  \item \textbf{Economic:} node cost capped by the client at Rs.~1,500.
+  \item \textbf{Environmental:} lead-free assembly; no primary cells.
+  \item \textbf{Health and Safety:} no exposed mains; reinforced isolation.
+  \item \textbf{Manufacturability:} single-sided PCB, all through-hole parts.
+  \item \textbf{Ethical and Social:} consumption data anonymised at source.
+\end{itemize}
+
+\section{Analysis and Feature finalization subject to constraints}
+
+The isolation requirement removed the direct-shunt current sensing option. The
+cost cap removed the dedicated metering IC in favour of computing RMS values in
+firmware. The manufacturability constraint fixed the enclosure size, which in
+turn set the maximum current transformer aperture.
+
+\section{Design Flow}
+
+Two alternative designs were carried forward for comparison.
+
+\subsection{Design~I: Metering IC based node}
+
+A dedicated energy metering IC performs all measurement and reports over SPI to
+a low-cost microcontroller. Accuracy is excellent and firmware effort is small,
+but the IC alone consumes most of the cost budget.
+
+\subsection{Design~II: Microcontroller with firmware RMS}
+
+The ESP32 samples the sensor chain directly through its internal ADC and
+computes RMS quantities in firmware. Cost is low and the design is flexible,
+at the price of a calibration routine and higher firmware complexity. The
+block diagram of this alternative is shown in Figure~\ref{fig:block}.
+
+\begin{figure}[H]
+  \centering
+  \phbox{2.9in}
+  \caption{Block diagram of the proposed monitoring node}
+  \label{fig:block}
+\end{figure}
+
+\section{Design selection}
+
+The two alternatives were scored against the constraint set, as shown in
+Table~\ref{tab:designsel}. Design~II was selected because it meets the accuracy
+target after calibration while remaining within the cost cap, and because it
+leaves headroom for the edge-side payload reduction algorithm.
+
+\begin{table}[H]
+  \centering
+  \caption{Comparison and selection of the design alternatives}
+  \label{tab:designsel}
+  \begin{tabular}{|L{4.2cm}|L{3.6cm}|L{3.6cm}|}
+    \hline
+    \textbf{Criterion} & \textbf{Design~I} & \textbf{Design~II} \\
+    \hline
+    Measurement accuracy & $\pm$0.5\% & $\pm$2.1\% after calibration \\
+    \hline
+    Bill of materials & Rs.~2,050 & Rs.~1,180 \\
+    \hline
+    Firmware effort & Low & Moderate \\
+    \hline
+    Meets cost constraint & No & Yes \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Implementation plan/methodology}
+
+The implementation follows the flow of Figure~\ref{fig:flow}: initialise the
+peripherals, acquire one mains cycle of samples, compute RMS quantities,
+accumulate energy, decide whether the reading has changed materially, and
+publish only when it has.
+
+\begin{figure}[H]
+  \centering
+  \phbox{3.0in}
+  \caption{Implementation flowchart of the firmware}
+  \label{fig:flow}
+\end{figure}
+
+%------------------------------------------------------------------------------
+\chapter{RESULTS ANALYSIS AND VALIDATION}
+
+\section{Implementation of solution}
+
+Modern engineering tools were used throughout:
+
+\begin{itemize}
+  \item \textbf{Analysis:} MATLAB was used for sampling-rate and quantisation studies.
+  \item \textbf{Design drawings and schematics:} KiCad for schematic capture and PCB layout.
+  \item \textbf{Report preparation:} \LaTeX{} for this document; Inkscape for figures.
+  \item \textbf{Project management and communication:} Git for version control and a shared Kanban board.
+  \item \textbf{Testing and validation:} a calibrated reference meter and a programmable load bank.
+\end{itemize}
+
+\subsection{Test setup}
+
+The node was connected in series with a programmable load bank and the reference
+meter. Ten load points were applied between 40~W and 2200~W and each point was
+held for fifteen minutes. The arrangement is shown in Figure~\ref{fig:setup}.
+
+\begin{figure}[H]
+  \centering
+  \phbox{2.7in}
+  \caption{Experimental test setup used for validation}
+  \label{fig:setup}
+\end{figure}
+
+\subsection{Measurement results}
+
+Table~\ref{tab:results} lists the measured values against the reference. The
+worst-case relative error of 2.1\% occurred at the lowest load point, where the
+current transformer operates near the bottom of its linear range.
+
+\begin{table}[H]
+  \centering
+  \caption{Measured power against the reference meter}
+  \label{tab:results}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{Load point} & \textbf{Reference (W)} & \textbf{Measured (W)} & \textbf{Error (\%)} \\
+    \hline
+    1 & 40   & 40.8   & 2.10 \\
+    \hline
+    2 & 250  & 253.1  & 1.24 \\
+    \hline
+    3 & 800  & 806.4  & 0.80 \\
+    \hline
+    4 & 1500 & 1508.5 & 0.57 \\
+    \hline
+    5 & 2200 & 2209.7 & 0.44 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Interpretation and data validation}
+
+Error decreases monotonically with load, which is consistent with the expected
+transformer behaviour rather than with a firmware fault. A 72-hour continuous
+run produced 51,840 expected records and 51,840 received records, confirming
+that the local buffer recovers correctly from short network outages.
+
+%------------------------------------------------------------------------------
+\chapter{CONCLUSION AND FUTURE WORK}
+
+\section{Conclusion}
+
+The objective of building a retrofittable, low-cost appliance-level energy
+monitoring node was met. The prototype tracked a calibrated reference within
+$\pm$2.1\% across the full tested range, against a target of $\pm$3\%, and
+dashboard latency stayed under 3~seconds against a target of 5~seconds. The
+bill of materials came to Rs.~1,180, comfortably inside the client
+cost cap.
+
+The one deviation from the expected result was the error at the lowest load
+point, which was higher than the simulation predicted. This is attributed to
+core non-linearity in the current transformer below 0.2~A, a region that the
+MATLAB model treated as ideal.
+
+\section{Future work}
+
+\begin{itemize}
+  \item Replace the current transformer with a Hall-effect sensor to improve low-load linearity.
+  \item Extend the firmware to three-phase operation for the hostel distribution boards.
+  \item Add a lightweight classifier so a single node can attribute energy to more than one appliance.
+  \item Harden the transport with TLS and per-device certificates before wider deployment.
+\end{itemize}
+
+%==============================================================================
+%  REFERENCES
+%==============================================================================
+\chapter*{REFERENCES}
+\phantomsection\addcontentsline{toc}{chapter}{REFERENCES}
+
+\begin{singlespace}
+\begin{enumerate}[leftmargin=1.4cm]
+  \item Ariponnammal, S. and Natarajan, S. (1994) `Transport Phenomena of Sm Sel~--~X Asx', Pramana~--~Journal of Physics, Vol.~42, No.~1, pp.~421--425.
+  \item Barnard, R.W. and Kellogg, C. (1980) `Applications of Convolution Operators to Problems in Univalent Function Theory', Michigan Mach, J., Vol.~27, pp.~81--94.
+  \item Hart, G.W. (1992) `Nonintrusive Appliance Load Monitoring', Proceedings of the IEEE, Vol.~80, No.~12, pp.~1870--1891.
+  \item Shin, K.G. and Mckay, N.D. (1984) `Open Loop Minimum Time Control of Mechanical Manipulations and its Applications', Proc.~Amer.~Contr.~Conf., San Diego, CA, pp.~1231--1236.
+\end{enumerate}
+\end{singlespace}
+
+%==============================================================================
+%  APPENDIX
+%==============================================================================
+\chapter*{APPENDIX}
+\phantomsection\addcontentsline{toc}{chapter}{APPENDIX}
+
+\begin{center}\textbf{\fourteen Appendix-1: Bill of Materials}\end{center}
+
+\vspace{6pt}
+\begin{singlespace}
+\begin{center}
+\begin{tabular}{|c|L{6.0cm}|c|c|}
+  \hline
+  \textbf{S.~No.} & \textbf{Component} & \textbf{Qty} & \textbf{Cost (Rs.)} \\
+  \hline
+  1 & ESP32 DevKit v1 & 1 & 420 \\
+  \hline
+  2 & Split-core current transformer, 30~A & 1 & 310 \\
+  \hline
+  3 & Voltage sensing transformer & 1 & 180 \\
+  \hline
+  4 & Signal conditioning components & 1 set & 150 \\
+  \hline
+  5 & Enclosure and hardware & 1 & 120 \\
+  \hline
+  \multicolumn{3}{|r|}{\textbf{Total}} & \textbf{1180} \\
+  \hline
+\end{tabular}
+\end{center}
+\end{singlespace}
+
+%==============================================================================
+%  USER MANUAL
+%==============================================================================
+\chapter*{USER MANUAL}
+\phantomsection\addcontentsline{toc}{chapter}{USER MANUAL}
+
+(Complete step by step instructions along with pictures necessary to run the
+project.)
+
+\begin{enumerate}[leftmargin=1.4cm]
+  \item Switch off the supply at the distribution board before installation.
+  \item Clip the split-core current transformer around the live conductor of the
+        load to be monitored, observing the arrow direction printed on the core.
+  \item Connect the voltage sensing leads to the corresponding terminals of the node.
+  \item Restore the supply. The status LED blinks amber while the node searches
+        for a network.
+  \item Connect a phone to the temporary access point named \texttt{EnergyNode-XXXX}
+        and enter the Wi-Fi credentials on the captive portal page.
+  \item The LED turns steady green once telemetry is flowing. Readings appear on
+        the dashboard within three seconds, as shown in Figure~\ref{fig:dash}.
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+  \phbox{2.6in}
+  \caption{Dashboard view after successful commissioning}
+  \label{fig:dash}
+\end{figure}
+
+\end{document}

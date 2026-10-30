@@ -1,0 +1,1254 @@
+{
+ "meta": {
+  "n_boot": 2000
+ },
+ "sms": {
+  "train_seconds": 14.262006823002594,
+  "weights": {
+   "Logistic Regression": 0.33290297118483103,
+   "Random Forest": 0.3330691089279451,
+   "XGBoost": 0.3340279198872238
+  },
+  "point": {
+   "Logistic Regression": {
+    "accuracy": 0.9854651162790697,
+    "precision": 0.952,
+    "recall": 0.9296875,
+    "f1": 0.9407114624505929,
+    "mcc": 0.9325152284736369,
+    "fpr": 0.00663716814159292,
+    "roc_auc": 0.9940974142699115,
+    "pr_auc": 0.9767739587719912,
+    "brier": 0.014763397809420868
+   },
+   "Random Forest": {
+    "accuracy": 0.9844961240310077,
+    "precision": 0.9516129032258065,
+    "recall": 0.921875,
+    "f1": 0.9365079365079365,
+    "mcc": 0.9278321068556871,
+    "fpr": 0.00663716814159292,
+    "roc_auc": 0.9928875138274336,
+    "pr_auc": 0.9769824997328548,
+    "brier": 0.01844295044136985
+   },
+   "XGBoost": {
+    "accuracy": 0.9844961240310077,
+    "precision": 0.9666666666666667,
+    "recall": 0.90625,
+    "f1": 0.9354838709677419,
+    "mcc": 0.9273069929634318,
+    "fpr": 0.004424778761061947,
+    "roc_auc": 0.994140625,
+    "pr_auc": 0.9738856960757674,
+    "brier": 0.013538895696888141
+   },
+   "Hybrid Ensemble": {
+    "accuracy": 0.9854651162790697,
+    "precision": 0.9669421487603306,
+    "recall": 0.9140625,
+    "f1": 0.9397590361445782,
+    "mcc": 0.931978273243682,
+    "fpr": 0.004424778761061947,
+    "roc_auc": 0.9941319828539823,
+    "pr_auc": 0.9789904761438561,
+    "brier": 0.013042471227738743
+   }
+  },
+  "ci": {
+   "Logistic Regression": {
+    "accuracy": [
+     0.9777131782945736,
+     0.9922480620155039
+    ],
+    "precision": [
+     0.9105691056910569,
+     0.9841269841269841
+    ],
+    "recall": [
+     0.8818897637795275,
+     0.9697026657552973
+    ],
+    "f1": [
+     0.909869561558529,
+     0.967276955602537
+    ],
+    "mcc": [
+     0.8981997015036088,
+     0.9629876218276285
+    ],
+    "fpr": [
+     0.0022026431718061676,
+     0.012373801670061512
+    ],
+    "roc_auc": [
+     0.9890516178759052,
+     0.9983351137395333
+    ],
+    "pr_auc": [
+     0.9585994811035033,
+     0.9915963373902573
+    ],
+    "brier": [
+     0.010736204453018483,
+     0.0193285918821837
+    ]
+   },
+   "Random Forest": {
+    "accuracy": [
+     0.9767441860465116,
+     0.9912790697674418
+    ],
+    "precision": [
+     0.9051621510673235,
+     0.9846153846153847
+    ],
+    "recall": [
+     0.8689468056669339,
+     0.9645405761626812
+    ],
+    "f1": [
+     0.9017732602697732,
+     0.963855421686747
+    ],
+    "mcc": [
+     0.8897492859705644,
+     0.9585635319034187
+    ],
+    "fpr": [
+     0.002180965685680549,
+     0.013044902221378385
+    ],
+    "roc_auc": [
+     0.9847975811989796,
+     0.9984752157385609
+    ],
+    "pr_auc": [
+     0.9580531126119854,
+     0.9920113934729875
+    ],
+    "brier": [
+     0.014695195888241528,
+     0.02286358522526198
+    ]
+   },
+   "XGBoost": {
+    "accuracy": [
+     0.9767441860465116,
+     0.9912790697674418
+    ],
+    "precision": [
+     0.928,
+     0.9924812030075187
+    ],
+    "recall": [
+     0.8492063492063492,
+     0.9538532110091743
+    ],
+    "f1": [
+     0.9015094615684746,
+     0.963236044417767
+    ],
+    "mcc": [
+     0.8899812610818109,
+     0.9585243681301853
+    ],
+    "fpr": [
+     0.0010869565217391304,
+     0.00905002997801612
+    ],
+    "roc_auc": [
+     0.9892588739883957,
+     0.99773215294705
+    ],
+    "pr_auc": [
+     0.954110795182417,
+     0.9885201145956733
+    ],
+    "brier": [
+     0.00772441540180017,
+     0.020670641803426853
+    ]
+   },
+   "Hybrid Ensemble": {
+    "accuracy": [
+     0.9777131782945736,
+     0.9922480620155039
+    ],
+    "precision": [
+     0.9285714285714286,
+     0.9924839877471455
+    ],
+    "recall": [
+     0.8604651162790697,
+     0.96
+    ],
+    "f1": [
+     0.9067796610169492,
+     0.9669421487603306
+    ],
+    "mcc": [
+     0.8953937035252482,
+     0.9624591105368377
+    ],
+    "fpr": [
+     0.0010869565217391304,
+     0.00905002997801612
+    ],
+    "roc_auc": [
+     0.9881741631869385,
+     0.9987280737756922
+    ],
+    "pr_auc": [
+     0.9610405015524267,
+     0.9933888179888345
+    ],
+    "brier": [
+     0.008982740297292274,
+     0.01787557462424066
+    ]
+   }
+  },
+  "tests": {
+   "Logistic Regression": {
+    "ens_only_correct": 4,
+    "base_only_correct": 4,
+    "mcnemar_p": 1.0,
+    "delta_auc": 3.456858407080432e-05,
+    "delong_z": 0.024510548922824876,
+    "delong_p": 0.9804453694200956,
+    "mcnemar_p_holm": 1.0,
+    "delong_p_holm": 1.0
+   },
+   "Random Forest": {
+    "ens_only_correct": 2,
+    "base_only_correct": 1,
+    "mcnemar_p": 1.0,
+    "delta_auc": 0.0012444690265487335,
+    "delong_z": 1.146777648072188,
+    "delong_p": 0.25147352937892564,
+    "mcnemar_p_holm": 1.0,
+    "delong_p_holm": 0.7544205881367769
+   },
+   "XGBoost": {
+    "ens_only_correct": 1,
+    "base_only_correct": 0,
+    "mcnemar_p": 1.0,
+    "delta_auc": -8.64214601770108e-06,
+    "delong_z": -0.005111039407084756,
+    "delong_p": 0.9959219983221917,
+    "mcnemar_p_holm": 1.0,
+    "delong_p_holm": 1.0
+   }
+  },
+  "false_positives": [
+   {
+    "p": 0.7776656057306651,
+    "text": "Hey...Great deal...Farm tour 9am to 5pm $95/pax, $50 deposit by 16 May"
+   },
+   {
+    "p": 0.5034190484817604,
+    "text": "Hi Jon, Pete here, Ive bin 2 Spain recently & hav sum dinero left, Bill said u or ur \u0091rents mayb interested in it, I hav 12,000pes, so around \u00a348, tb, James."
+   },
+   {
+    "p": 0.6510060951669538,
+    "text": "7 wonders in My WORLD 7th You 6th Ur style 5th Ur smile 4th Ur Personality 3rd Ur Nature 2nd Ur SMS and 1st \"Ur Lovely Friendship\"... good morning dear"
+   },
+   {
+    "p": 0.8162837851820011,
+    "text": "Please protect yourself from e-threats. SIB never asks for sensitive information like Passwords,ATM/SMS PIN thru email. Never share your password with anybody."
+   }
+  ],
+  "false_negatives": [
+   {
+    "p": 0.0652902071332994,
+    "text": "Latest News! Police station toilet stolen, cops have nothing to go on!"
+   },
+   {
+    "p": 0.07878080903551671,
+    "text": "Do you realize that in about 40 years, we'll have thousands of old ladies running around with tattoos?"
+   },
+   {
+    "p": 0.113013085001642,
+    "text": "dating:i have had two of these. Only started after i sent a text to talk sport radio last week. Any connection do you think or coincidence?"
+   },
+   {
+    "p": 0.4215157096726513,
+    "text": "Your weekly Cool-Mob tones are ready to download !This weeks new Tones include: 1) Crazy Frog-AXEL F>>> 2) Akon-Lonely>>> 3) Black Eyed-Dont P >>>More info in n"
+   },
+   {
+    "p": 0.3294072465003083,
+    "text": "Adult 18 Content Your video will be with you shortly"
+   },
+   {
+    "p": 0.1917602678260432,
+    "text": "Filthy stories and GIRLS waiting for your"
+   },
+   {
+    "p": 0.05188036275022398,
+    "text": "How come it takes so little time for a child who is afraid of the dark to become a teenager who wants to stay out all night?"
+   },
+   {
+    "p": 0.29161338190780833,
+    "text": "FreeMsg>FAV XMAS TONES!Reply REAL"
+   },
+   {
+    "p": 0.20231464626100637,
+    "text": "In The Simpsons Movie released in July 2007 name the band that died at the start of the film? A-Green Day, B-Blue Day, C-Red Day. (Send A, B or C)"
+   },
+   {
+    "p": 0.30562512468564607,
+    "text": "LIFE has never been this much fun and great until you came in. You made it truly special for me. I won't forget you! enjoy @ one gbp/sms"
+   },
+   {
+    "p": 0.2504799146206573,
+    "text": "Oh my god! I've found your number again! I'm so glad, text me back xafter this msgs cst std ntwk chg \u00a31.50"
+   }
+  ],
+  "dense_vs_sparse_xgb": {
+   "label_disagreements": 729,
+   "n": 1032,
+   "mean_abs_prob_diff": 0.6341568231582642
+  },
+  "shap": {
+   "top15": [
+    {
+     "feature": "DIGIT_RATIO",
+     "mean_abs_shap": 3.538761615753174,
+     "direction_corr": 0.9212821279504707,
+     "engineered": true,
+     "mean_shap_present": 1.903151035308838,
+     "mean_shap_absent": -3.492560863494873
+    },
+    {
+     "feature": "AVG_WORD_LEN",
+     "mean_abs_shap": 1.4141578674316406,
+     "direction_corr": 0.8878037675501594,
+     "engineered": true,
+     "mean_shap_present": -0.9043691754341125,
+     "mean_shap_absent": null
+    },
+    {
+     "feature": "SPAM_KEYWORDS",
+     "mean_abs_shap": 1.2853721380233765,
+     "direction_corr": 0.8033339370873362,
+     "engineered": true,
+     "mean_shap_present": 2.3249714374542236,
+     "mean_shap_absent": -1.1248562335968018
+    },
+    {
+     "feature": "UPPERCASE_RATIO",
+     "mean_abs_shap": 0.8672131299972534,
+     "direction_corr": 0.40466316532940977,
+     "engineered": true,
+     "mean_shap_present": -0.5727005004882812,
+     "mean_shap_absent": 0.3334650993347168
+    },
+    {
+     "feature": "CHAR_COUNT",
+     "mean_abs_shap": 0.8513882160186768,
+     "direction_corr": 0.6602562853092767,
+     "engineered": true,
+     "mean_shap_present": -0.5726796388626099,
+     "mean_shap_absent": null
+    },
+    {
+     "feature": "SPECIAL_CHAR_RATIO",
+     "mean_abs_shap": 0.5317180156707764,
+     "direction_corr": -0.6631555571708952,
+     "engineered": true,
+     "mean_shap_present": -0.2950809895992279,
+     "mean_shap_absent": -0.25274908542633057
+    },
+    {
+     "feature": "you",
+     "mean_abs_shap": 0.5227677822113037,
+     "direction_corr": 0.8974449762461855,
+     "engineered": false,
+     "mean_shap_present": 0.4240889847278595,
+     "mean_shap_absent": -0.5385648608207703
+    },
+    {
+     "feature": "PUNCT_RATIO",
+     "mean_abs_shap": 0.45664528012275696,
+     "direction_corr": -0.7251906957362989,
+     "engineered": true,
+     "mean_shap_present": -0.2965832054615021,
+     "mean_shap_absent": 0.3851388990879059
+    },
+    {
+     "feature": "to",
+     "mean_abs_shap": 0.37917453050613403,
+     "direction_corr": 0.9206709935610105,
+     "engineered": false,
+     "mean_shap_present": 0.40997934341430664,
+     "mean_shap_absent": -0.35763055086135864
+    },
+    {
+     "feature": "NUM_EXCLAMATIONS",
+     "mean_abs_shap": 0.3684626817703247,
+     "direction_corr": 0.6268132347324359,
+     "engineered": true,
+     "mean_shap_present": 0.6274739503860474,
+     "mean_shap_absent": -0.3215068578720093
+    },
+    {
+     "feature": "ALLCAPS_WORDS",
+     "mean_abs_shap": 0.34730997681617737,
+     "direction_corr": 0.09507889216339069,
+     "engineered": true,
+     "mean_shap_present": 0.488251268863678,
+     "mean_shap_absent": -0.3047689199447632
+    },
+    {
+     "feature": "for",
+     "mean_abs_shap": 0.3373396396636963,
+     "direction_corr": 0.8739985690125595,
+     "engineered": false,
+     "mean_shap_present": 0.3707262873649597,
+     "mean_shap_absent": -0.3221231997013092
+    },
+    {
+     "feature": "your",
+     "mean_abs_shap": 0.2731003165245056,
+     "direction_corr": 0.888447969913401,
+     "engineered": false,
+     "mean_shap_present": 0.6044958829879761,
+     "mean_shap_absent": -0.23678922653198242
+    },
+    {
+     "feature": "NUM_QUESTIONS",
+     "mean_abs_shap": 0.20681363344192505,
+     "direction_corr": 0.6995713436042621,
+     "engineered": true,
+     "mean_shap_present": 0.33836817741394043,
+     "mean_shap_absent": -0.16307903826236725
+    },
+    {
+     "feature": "WORD_COUNT",
+     "mean_abs_shap": 0.19573749601840973,
+     "direction_corr": 0.22872555156333235,
+     "engineered": true,
+     "mean_shap_present": -0.1450149565935135,
+     "mean_shap_absent": null
+    }
+   ],
+   "engineered_share_of_mass": 0.7446151375770569,
+   "n_engineered_in_top10": 8,
+   "rank_of": {
+    "httpaddr": 17,
+    "phonenumbr": 22,
+    "numbr": 19,
+    "moneysymb": 49
+   }
+  },
+  "latency": {
+   "single_ms_median": 14.70535749103874,
+   "single_ms_p95": 15.963057703629602,
+   "batch_msgs_per_s": 14896.798529613043,
+   "shap_ms_median": 0.8559815178159624
+  },
+  "lime_faithfulness": {
+   "n": 60,
+   "lime_s_median": 0.07577769199269824,
+   "k1": {
+    "lime_drop": 0.1056601775648933,
+    "random_drop": 0.012286944259562792,
+    "lime_flip_rate": 0.1
+   },
+   "k3": {
+    "lime_drop": 0.29143884114164265,
+    "random_drop": 0.04290996709800599,
+    "lime_flip_rate": 0.26666666666666666
+   },
+   "k5": {
+    "lime_drop": 0.45459769594448945,
+    "random_drop": 0.08120861347847924,
+    "lime_flip_rate": 0.5166666666666667
+   }
+  }
+ },
+ "email": {
+  "train_seconds": 76.7560393189924,
+  "weights": {
+   "Logistic Regression": 0.3355544013296294,
+   "Random Forest": 0.3311430537001148,
+   "XGBoost": 0.33330254497025574
+  },
+  "point": {
+   "Logistic Regression": {
+    "accuracy": 0.9833333333333333,
+    "precision": 0.9753401360544217,
+    "recall": 0.9905008635578584,
+    "f1": 0.9828620394173093,
+    "mcc": 0.9667522351740987,
+    "fpr": 0.023349436392914653,
+    "roc_auc": 0.9978522300929751,
+    "pr_auc": 0.9975863997193422,
+    "brier": 0.02103495517224979
+   },
+   "Random Forest": {
+    "accuracy": 0.9745833333333334,
+    "precision": 0.9628691983122363,
+    "recall": 0.9853195164075993,
+    "f1": 0.9739650021340162,
+    "mcc": 0.9493849713077573,
+    "fpr": 0.03542673107890499,
+    "roc_auc": 0.9973411873990082,
+    "pr_auc": 0.9969989620674471,
+    "brier": 0.03799164087183063
+   },
+   "XGBoost": {
+    "accuracy": 0.975,
+    "precision": 0.9644670050761421,
+    "recall": 0.9844559585492227,
+    "f1": 0.9743589743589743,
+    "mcc": 0.9501639877477942,
+    "fpr": 0.033816425120772944,
+    "roc_auc": 0.9968857683996228,
+    "pr_auc": 0.9964634082696125,
+    "brier": 0.01891389185399902
+   },
+   "Hybrid Ensemble": {
+    "accuracy": 0.9825,
+    "precision": 0.9704890387858347,
+    "recall": 0.9939550949913645,
+    "f1": 0.9820819112627986,
+    "mcc": 0.965248715199118,
+    "fpr": 0.02818035426731079,
+    "roc_auc": 0.9982596736557838,
+    "pr_auc": 0.9980446678524064,
+    "brier": 0.021338279511075642
+   }
+  },
+  "ci": {
+   "Logistic Regression": {
+    "accuracy": [
+     0.9783333333333334,
+     0.9883333333333333
+    ],
+    "precision": [
+     0.966280955069775,
+     0.9839394769082269
+    ],
+    "recall": [
+     0.9844961240310077,
+     0.9957229314265242
+    ],
+    "f1": [
+     0.977580701860719,
+     0.9879520662184422
+    ],
+    "mcc": [
+     0.9568056836200962,
+     0.9766738913946469
+    ],
+    "fpr": [
+     0.015115053632883199,
+     0.031798158452570204
+    ],
+    "roc_auc": [
+     0.9966607912459977,
+     0.9988989630760342
+    ],
+    "pr_auc": [
+     0.9962669282599115,
+     0.9987781672630033
+    ],
+    "brier": [
+     0.018296042573984758,
+     0.023699917936971758
+    ]
+   },
+   "Random Forest": {
+    "accuracy": [
+     0.9683333333333334,
+     0.9804166666666667
+    ],
+    "precision": [
+     0.9514636005036887,
+     0.9732761858845203
+    ],
+    "recall": [
+     0.9777191005557202,
+     0.9915041835923623
+    ],
+    "f1": [
+     0.9671137957888327,
+     0.9801488833746899
+    ],
+    "mcc": [
+     0.93682092921529,
+     0.9610167800190793
+    ],
+    "fpr": [
+     0.025375179433642175,
+     0.045747915067345934
+    ],
+    "roc_auc": [
+     0.9962026998040799,
+     0.9983992973220289
+    ],
+    "pr_auc": [
+     0.9955935839908687,
+     0.9982386397913551
+    ],
+    "brier": [
+     0.03533685715314784,
+     0.040782830616377615
+    ]
+   },
+   "XGBoost": {
+    "accuracy": [
+     0.96875,
+     0.98125
+    ],
+    "precision": [
+     0.9535463156256425,
+     0.9746771779181471
+    ],
+    "recall": [
+     0.9772222621471011,
+     0.9913201953575548
+    ],
+    "f1": [
+     0.96787766968045,
+     0.9806009269729585
+    ],
+    "mcc": [
+     0.9378198223368872,
+     0.9625409090639907
+    ],
+    "fpr": [
+     0.024267504141539147,
+     0.044321782423107095
+    ],
+    "roc_auc": [
+     0.9956135473304285,
+     0.9980220775029146
+    ],
+    "pr_auc": [
+     0.9948743892919018,
+     0.9978122021907779
+    ],
+    "brier": [
+     0.015134119601124799,
+     0.022776044977022236
+    ]
+   },
+   "Hybrid Ensemble": {
+    "accuracy": [
+     0.9770833333333333,
+     0.9875
+    ],
+    "precision": [
+     0.9606691131078949,
+     0.9799339478841548
+    ],
+    "recall": [
+     0.9894452122684312,
+     0.9981904912502636
+    ],
+    "f1": [
+     0.9766000011487452,
+     0.9872795157078947
+    ],
+    "mcc": [
+     0.9546826865749759,
+     0.9751399311005099
+    ],
+    "fpr": [
+     0.019215355576023056,
+     0.03741251656894917
+    ],
+    "roc_auc": [
+     0.997418680568282,
+     0.9990370755144157
+    ],
+    "pr_auc": [
+     0.9970612611566623,
+     0.9989439583912691
+    ],
+    "brier": [
+     0.018742112253591924,
+     0.02396503882978901
+    ]
+   }
+  },
+  "tests": {
+   "Logistic Regression": {
+    "ens_only_correct": 11,
+    "base_only_correct": 13,
+    "mcnemar_p": 0.8388197422027588,
+    "delta_auc": 0.0004074435628089734,
+    "delong_z": 1.2593442156741599,
+    "delong_p": 0.2079060291530752,
+    "mcnemar_p_holm": 0.8388197422027588,
+    "delong_p_holm": 0.2079060291530752
+   },
+   "Random Forest": {
+    "ens_only_correct": 24,
+    "base_only_correct": 5,
+    "mcnemar_p": 0.0005461126565933228,
+    "delta_auc": 0.0009184862567757079,
+    "delong_z": 3.135215747727034,
+    "delong_p": 0.0017172776381272317,
+    "mcnemar_p_holm": 0.0016005635261535645,
+    "delong_p_holm": 0.0034345552762544635
+   },
+   "XGBoost": {
+    "ens_only_correct": 22,
+    "base_only_correct": 4,
+    "mcnemar_p": 0.0005335211753845215,
+    "delta_auc": 0.00137390525616099,
+    "delong_z": 3.6603696313872165,
+    "delong_p": 0.00025185167029215006,
+    "mcnemar_p_holm": 0.0016005635261535645,
+    "delong_p_holm": 0.0007555550108764501
+   }
+  },
+  "false_positives": [
+   {
+    "p": 0.7720334867095033,
+    "text": "life in general good god - - - - where do you find time for all of that . you should write a book when the kids go off to college . by then you should have many many stories . by the way what is your new address ? i may want to come by some evening with a lawn chair and a 6 pack . watching you work "
+   },
+   {
+    "p": 0.6745224682984734,
+    "text": "fw : very symbolic of our current struggle"
+   },
+   {
+    "p": 0.5106910223290112,
+    "text": "fundamental operating standards i just looked over your draft of the fundamental operating standards again . i think they are very good and i am just worried about completeness ( what are we missing ) . one thing that occurs to me is logistics and somehow reconciling planned physical activity to sch"
+   },
+   {
+    "p": 0.614087310166798,
+    "text": "tech - support @ service . juno . com : problems retrieving mail daren i guess i need help with this too ! love you - - - - - - - - - begin forwarded message - - - - - - - - - - from : tech - support @ service . juno . com to : subject : problems retrieving mail date : message - id : dear juno membe"
+   },
+   {
+    "p": 0.575357566608119,
+    "text": "the storage revolution has begun network world fusion focus : amy larsen decarlo on storage in the enterprise today ' s focus : the storage revolution has begun 03 / 07 / 00 dear wincenty kaminski , today ' s focus : the storage revolution has begun by amy larsen decarlo believe the hype . we are in"
+   },
+   {
+    "p": 0.8235560760056061,
+    "text": "the negotiation skills company , inc . newsletter aug 2001 fighting fires without burning bridges ( sm ) the occasional newsletter of the negotiation skills company , inc . ( tnsc ) now our website is even more accessible . if you have a question about issues you can search the advice section to fin"
+   },
+   {
+    "p": 0.621943602825251,
+    "text": "( no subject ) hey daren its me . have you had any sleep lately ? ? ? ? see ya at the beach ."
+   },
+   {
+    "p": 0.8671845794311246,
+    "text": "interesting look what i found at jobsearch . monster . com . i thought this might help you with your job searching . com & hd = company % 2 emonster % 2 ecom & logo = 1 comments : i thought you might be interested in this ."
+   },
+   {
+    "p": 0.5496751680714275,
+    "text": "cal prices here ' s the path to the california prices sheet : p : trading / california / cascheduling / cash / position / ca / 2001 / feb 2001 / cal prices have fun with that ."
+   },
+   {
+    "p": 0.5645573307565402,
+    "text": "potential new analyst hi guys a number of us interviewed a guy named matthew williams last week for an analyst position . he has a phd in particle physics and experience with monte carlo simulation ( albeit in fortran 77 ) from his academic work . he ' s also a good communicator , having completed a"
+   },
+   {
+    "p": 0.7239544175046517,
+    "text": "your username and password dear daren farmer , here is your username and password that you requested . username : dfarmer 2 password : jungle you can update your info at :"
+   },
+   {
+    "p": 0.7974402689857246,
+    "text": "hey darren it ' s me , kari bullington . i just thought i would drop you a line and say hello ! ! ! how are you ? i sure hated to hear about troy . i don ' t understand how something like that can happen to such an all around great person . hope to hear from you ! ! kari"
+   },
+   {
+    "p": 0.6223409429739031,
+    "text": "yahoo - transwestern pipeline announces successful open season for proposed sun"
+   },
+   {
+    "p": 0.5926122439982444,
+    "text": "listo 319 isranir @ rice . edu , demianen @ rice . edu , tbal 93 @ yahoo . com , maue @ rice . edu , loughrid @ rice . edu , jblantonjr @ yahoo . com , gjohnson @ rice . edu , emchombo @ rice . edu , nazareth @ rice . edu , vanstone @ rice . edu , ganguzza @ rice . edu , nelsonb @ rice . edu , sssmi"
+   },
+   {
+    "p": 0.6460599817957474,
+    "text": "contracts what do you think happens if they require 2 yrs ?"
+   },
+   {
+    "p": 0.55402422885066,
+    "text": "aa exec lead / congrats ! louise , first - congratulations on the new baby ! life has just changed big time in case you haven ' t already noticed ( i have 3 daughters myself ) . best wishes on your new addition . second - i wanted to test your interest on being the exec lead for carnegie - mellon as"
+   },
+   {
+    "p": 0.8530782652144462,
+    "text": "instructions for life in the new millennium from > > > > > the dalai lama : > > > > > 1 . take into account that great love and great > > > > > achievements involve great risk . > > > > > 2 . when you lose , don ' t lose the lesson . > > > > > > > > > > 3 . follow the three rs : respect for self , r"
+   },
+   {
+    "p": 0.6402796210112839,
+    "text": "practice thurs . at 6 pm yup , everyone is invited to play with the high schoolers thursdays at 6 pm . oes is out scholls ferry road a half mile past the beav - hills highway , turn left on nicol road , follow to the end . hope to see y ' all there . adam get your free download of msn explorer at ht"
+   },
+   {
+    "p": 0.6522795291947101,
+    "text": "selden has asked for a copy of all our cv ' s . i don ' t want to give them anything more than a 5 - 8 line bio . do you have anything prepared ? - r n . b . spoke with koenig and we ' ll be chatting with palmer tomorrow . koenig said he ' ll try and make it , but also thinks palmer should be involv"
+   },
+   {
+    "p": 0.8590576619910295,
+    "text": "egyptian festival > http : / / www . egyptianfestival . com / - egyptian festival . url"
+   },
+   {
+    "p": 0.6195237033506349,
+    "text": "hi ! ! wish you were here ! can ' t believe you got away so fast ! how ' s your job - is it you ? how ' s meghan ? ( sp right ? ) bring her to poli ' s party . . . . i hope you come . write me and let me know how you ' re doing when you can . did you buy a house ? i really miss talking to you ( and "
+   },
+   {
+    "p": 0.8731870717390283,
+    "text": "gift web site http : / / www . barrington - ltd . com /"
+   },
+   {
+    "p": 0.8317181602099427,
+    "text": "damn the weather ! ! ! ! hey there ! ! oh i was sooo upset ! it didn ' t rain , thunder , sprinkle shoot it wasn ' t even humid or misty ! i got screwed ! : ) ok it wasn ' t all that bad . i actually had a really great time . imagine someone actually going on vacation to see it pour rain . sick sick"
+   },
+   {
+    "p": 0.5098694830300342,
+    "text": "re : draft responses to ferc staff good one ."
+   },
+   {
+    "p": 0.5479715402947853,
+    "text": "full circle : asps the new big blue ? network world fusion focus : mike jude and nancy meachim on application service providers today ' s focus : full circle : asps the new big blue ? 03 / 15 / 00 dear wincenty kaminski , today ' s focus : full circle : asps the new big blue ? by mike jude and nancy"
+   },
+   {
+    "p": 0.682039986035277,
+    "text": "pictures ! pictures of daddy ' s little girl ! guess which one i like the best ! > > > > > > - dsco 0051 . jpg - dsco 0046 . jpg - dsco 0045 . jpg - dsco 0042 . jpg - dsco 0049 . jpg - dsco 0043 . jpg"
+   },
+   {
+    "p": 0.6417729093958873,
+    "text": "freedom ? ? ? bammelyoungfamilies - - - - - - - - - - - - - - - - - - - - - - - - - - - listbot sponsor - - - - - - - - - - - - - - - - - - - - - - - - - - start your own free email list at http : / / www . listbot . com / links / joinlb this is a statement that was read over the pa system at the fo"
+   },
+   {
+    "p": 0.5608187055448164,
+    "text": "dear owner as of the 4 th april 2001 we will be changing our bank from lloyds tsb to citibank . sunsail worldwide sailing limited citibank . n . a the strand london if you have any problems receiving your monthly or quarterly payments , please do not hesitate to contact me . with kind regards jo hil"
+   },
+   {
+    "p": 0.7355239220950589,
+    "text": "yummy frappachino hey let ' s go get coffee again that was really fun . i ' m so much more awake now . when will you be back from vegas ? sunday night right ? i ' m sure you told me but i have a terrible memory ."
+   },
+   {
+    "p": 0.8175454664776644,
+    "text": "\" the negotiation skills company \" quote update \" the negotiation skills company \" quote update \" learn the rules so you know how to break them properly . \" - - dalai lama be sure to read our latest \" ask steve ' s advice \" articles with responses provided by steven p . cohen . our current online ar"
+   },
+   {
+    "p": 0.599193260486563,
+    "text": "holiday party - save the date please click on the link below save the date"
+   },
+   {
+    "p": 0.5819481686628399,
+    "text": "re : hoop it up 281 . 343 . 8233"
+   },
+   {
+    "p": 0.6908702111897216,
+    "text": "reporting donna and richard , more information for your tracking database and report archives . john"
+   },
+   {
+    "p": 0.8021551073388424,
+    "text": "coming to ethink september 29 : thinkbank idea vault ever had a great idea but been uncertain what to do with it ? it ' s the mental equivalent of being all dressed up with no place to go . happily , there is help for the idea problem . the next time you have a brilliant idea , make a deposit in the"
+   },
+   {
+    "p": 0.581825641766244,
+    "text": "your amazon . com order ( # 104 - 9670681 - 0325567 ) greetings from amazon . com . we thought you ' d like to know that we shipped your items today , and that this completes your order . thanks for shopping at amazon . com , and we hope to see you again soon . you can track the status of this order"
+   }
+  ],
+  "false_negatives": [
+   {
+    "p": 0.4667049241522308,
+    "text": "? ? ? ? 13 ? ? ? ? ? ? ? * ? * ? * ? 234567890 234567890 234567890 234567890"
+   },
+   {
+    "p": 0.36916778256082783,
+    "text": "message received thanks for contacting intellexual . net , your message has been received on our servers ; however , we do get a high volume of incoming mail and due to an everchanging schedule are increasingly unable to address each and every one . contacting me to diagnose / solve your case - by -"
+   },
+   {
+    "p": 0.4277331343353486,
+    "text": "stronger projections than the competitions . big news in todays marketp o k g . o t c pokerbook gaming corporation ( p o k g . o t c ) current trading less than $ 0 . 10 value under $ 0 . 75 in the news : senticore acquires controlling interest of pokerbook gaming corp ( p o k g . o t c ) . monday d"
+   },
+   {
+    "p": 0.30821863274995953,
+    "text": "please read urgently dear sir / madam , i am contacting you from asia to discuss a business deal of us $ 18 . 4 m acquired during one of the rescue operation carried out by my organization ( an international relief organization ) over the tsunami rehabilitation projects and programes . i will need y"
+   },
+   {
+    "p": 0.3234357516612137,
+    "text": "re : your details please read the attached file ."
+   },
+   {
+    "p": 0.4893469189784864,
+    "text": "1 1"
+   },
+   {
+    "p": 0.40093421443164307,
+    "text": "congratulations sun , 26 dec 2004 02 : 46 : 28 - 0600 good day : after viewing your record we are unable to a p prove your mor tga g e / r e financ e at the r at e of 3 . 00 . however we can give you 4 . 0 deal . if you are satisfied , then we will need you to verify some information below . thank y"
+   }
+  ],
+  "dense_vs_sparse_xgb": {
+   "label_disagreements": 1182,
+   "n": 2400,
+   "mean_abs_prob_diff": 0.48743560910224915
+  },
+  "shap": {
+   "top15": [
+    {
+     "feature": "enron",
+     "mean_abs_shap": 1.326749324798584,
+     "direction_corr": -0.8733573889686174,
+     "engineered": false,
+     "mean_shap_present": -3.9511570930480957,
+     "mean_shap_absent": 0.6603643894195557
+    },
+    {
+     "feature": "NUM_EXCLAMATIONS",
+     "mean_abs_shap": 0.431706964969635,
+     "direction_corr": 0.23926245942749763,
+     "engineered": true,
+     "mean_shap_present": 0.6162011623382568,
+     "mean_shap_absent": -0.33015596866607666
+    },
+    {
+     "feature": "CHAR_COUNT",
+     "mean_abs_shap": 0.31794434785842896,
+     "direction_corr": 0.4156541175970553,
+     "engineered": true,
+     "mean_shap_present": 0.18453434109687805,
+     "mean_shap_absent": null
+    },
+    {
+     "feature": "your",
+     "mean_abs_shap": 0.2807958722114563,
+     "direction_corr": 0.8973639135038203,
+     "engineered": false,
+     "mean_shap_present": 0.35093289613723755,
+     "mean_shap_absent": -0.22003073990345
+    },
+    {
+     "feature": "thanks",
+     "mean_abs_shap": 0.259983092546463,
+     "direction_corr": -0.9280253068022213,
+     "engineered": false,
+     "mean_shap_present": -0.7820338606834412,
+     "mean_shap_absent": 0.1326563060283661
+    },
+    {
+     "feature": "vince",
+     "mean_abs_shap": 0.23914004862308502,
+     "direction_corr": -0.8943821851209742,
+     "engineered": false,
+     "mean_shap_present": -2.13151216506958,
+     "mean_shap_absent": 0.06889627128839493
+    },
+    {
+     "feature": "http",
+     "mean_abs_shap": 0.23805221915245056,
+     "direction_corr": 0.8393458887865652,
+     "engineered": false,
+     "mean_shap_present": 0.7082490921020508,
+     "mean_shap_absent": -0.1311917006969452
+    },
+    {
+     "feature": "attached",
+     "mean_abs_shap": 0.23602981865406036,
+     "direction_corr": -0.9148752689329305,
+     "engineered": false,
+     "mean_shap_present": -1.1940337419509888,
+     "mean_shap_absent": 0.09129292517900467
+    },
+    {
+     "feature": "DIGIT_RATIO",
+     "mean_abs_shap": 0.2287151962518692,
+     "direction_corr": -0.785119479288667,
+     "engineered": true,
+     "mean_shap_present": 0.02909579500555992,
+     "mean_shap_absent": -0.013239595107734203
+    },
+    {
+     "feature": "our",
+     "mean_abs_shap": 0.2132798135280609,
+     "direction_corr": 0.8814165221535304,
+     "engineered": false,
+     "mean_shap_present": 0.416545033454895,
+     "mean_shap_absent": -0.12302125990390778
+    },
+    {
+     "feature": "to",
+     "mean_abs_shap": 0.19208279252052307,
+     "direction_corr": -0.9158926057166504,
+     "engineered": false,
+     "mean_shap_present": -0.11012917757034302,
+     "mean_shap_absent": 0.276166707277298
+    },
+    {
+     "feature": "the",
+     "mean_abs_shap": 0.18906870484352112,
+     "direction_corr": -0.8122503737667134,
+     "engineered": false,
+     "mean_shap_present": -0.11781148612499237,
+     "mean_shap_absent": 0.27202466130256653
+    },
+    {
+     "feature": "here",
+     "mean_abs_shap": 0.18647417426109314,
+     "direction_corr": 0.8617990548775233,
+     "engineered": false,
+     "mean_shap_present": 0.44443994760513306,
+     "mean_shap_absent": -0.11738322675228119
+    },
+    {
+     "feature": "no",
+     "mean_abs_shap": 0.17212776839733124,
+     "direction_corr": 0.9356621841561078,
+     "engineered": false,
+     "mean_shap_present": 0.4064653813838959,
+     "mean_shap_absent": -0.09530731290578842
+    },
+    {
+     "feature": "louise",
+     "mean_abs_shap": 0.17151497304439545,
+     "direction_corr": -0.9304016226801878,
+     "engineered": false,
+     "mean_shap_present": -2.1892833709716797,
+     "mean_shap_absent": 0.059712402522563934
+    }
+   ],
+   "engineered_share_of_mass": 0.12652453780174255,
+   "n_engineered_in_top10": 3,
+   "rank_of": {
+    "enron": 1,
+    "vince": 6,
+    "kaminski": 25,
+    "hpl": 4974,
+    "phonenumbr": 488,
+    "numbr": 63,
+    "moneysymb": 102
+   }
+  },
+  "latency": {
+   "single_ms_median": 14.7943585034227,
+   "single_ms_p95": 17.149080779927314,
+   "batch_msgs_per_s": 1967.1757529482247,
+   "shap_ms_median": 0.7489414856536314
+  },
+  "lime_faithfulness": {
+   "n": 25,
+   "lime_s_median": 0.21016586798941717,
+   "k1": {
+    "lime_drop": 0.043143781622781076,
+    "random_drop": 0.002164848668263988,
+    "lime_flip_rate": 0.0
+   },
+   "k3": {
+    "lime_drop": 0.1332554474008976,
+    "random_drop": 0.0052981820454558685,
+    "lime_flip_rate": 0.12
+   },
+   "k5": {
+    "lime_drop": 0.19839353893552647,
+    "random_drop": 0.009621846643869572,
+    "lime_flip_rate": 0.24
+   }
+  }
+ },
+ "exhibit": {
+  "analysis": {
+   "label": "spam",
+   "spam_probability": 0.9956310522041685,
+   "per_model": {
+    "Logistic Regression": 0.9999988306165529,
+    "Random Forest": 0.9868914549615107,
+    "XGBoost": 0.9999924898147583
+   },
+   "ensemble_weights": {
+    "Logistic Regression": 0.33290297118483103,
+    "Random Forest": 0.3330691089279451,
+    "XGBoost": 0.3340279198872238
+   }
+  },
+  "lime": [
+   [
+    "09061701461",
+    0.1234933840156357
+   ],
+   [
+    "000",
+    0.060657956463563444
+   ],
+   [
+    "claim",
+    0.0534808495426576
+   ],
+   [
+    "URGENT",
+    0.046338461617583405
+   ],
+   [
+    "prize",
+    0.04464389624084417
+   ],
+   [
+    "2",
+    0.037891084770077674
+   ],
+   [
+    "GUARANTEED",
+    0.037312648379378054
+   ],
+   [
+    "WON",
+    0.03591356568600543
+   ],
+   [
+    "www",
+    0.03119710341184495
+   ],
+   [
+    "your",
+    0.02457508527575885
+   ]
+  ],
+  "shap_base": 0.49872907996177673,
+  "shap_top10": [
+   [
+    "DIGIT_RATIO",
+    5.8419694900512695
+   ],
+   [
+    "AVG_WORD_LEN",
+    1.650181770324707
+   ],
+   [
+    "SPAM_KEYWORDS",
+    1.322403907775879
+   ],
+   [
+    "httpaddr",
+    1.0491836071014404
+   ],
+   [
+    "UPPERCASE_RATIO",
+    0.5795778632164001
+   ],
+   [
+    "ALLCAPS_WORDS",
+    0.4614371657371521
+   ],
+   [
+    "SPECIAL_CHAR_RATIO",
+    -0.42385098338127136
+   ],
+   [
+    "NUM_URLS",
+    0.40826085209846497
+   ],
+   [
+    "to",
+    0.33621084690093994
+   ],
+   [
+    "phonenumbr",
+    0.252550333738327
+   ]
+  ],
+  "shap_logit": 11.792543411254883
+ },
+ "routing": {
+  "router_acc_sms": 0.9641472868217055,
+  "router_acc_email": 0.85125,
+  "oracle": {
+   "accuracy": 0.9833916083916084,
+   "precision": 0.9701606732976281,
+   "recall": 0.9860031104199067,
+   "f1": 0.9780177400694177,
+   "mcc": 0.9647550407756751,
+   "fpr": 0.018173345759552657,
+   "roc_auc": 0.997815386577654,
+   "pr_auc": 0.9967780764168396,
+   "brier": 0.018843735761540772
+  },
+  "auto": {
+   "accuracy": 0.9216200466200466,
+   "precision": 0.9212924606462303,
+   "recall": 0.864696734059098,
+   "f1": 0.8920978740473325,
+   "mcc": 0.8316820870642933,
+   "fpr": 0.044268406337371856,
+   "roc_auc": 0.9686827386189214,
+   "pr_auc": 0.9624666221849857,
+   "brier": 0.05937700292985067
+  },
+  "auto_acc_by_source": {
+   "sms": 0.9641472868217055,
+   "email": 0.9033333333333333
+  },
+  "misrouted_email_acc": 0.42296918767507,
+  "cross": {
+   "sms_model_on_email": {
+    "accuracy": 0.5208333333333334,
+    "precision": 0.5031201248049922,
+    "recall": 0.5569948186528497,
+    "f1": 0.5286885245901639,
+    "mcc": 0.04418863278042667,
+    "fpr": 0.5128824476650563,
+    "roc_auc": 0.529019576759308,
+    "pr_auc": 0.5565341696479915,
+    "brier": 0.2971477840666098
+   },
+   "email_model_on_sms": {
+    "accuracy": 0.22093023255813954,
+    "precision": 0.13100436681222707,
+    "recall": 0.9375,
+    "f1": 0.22988505747126434,
+    "mcc": 0.05944991899280208,
+    "fpr": 0.8805309734513275,
+    "roc_auc": 0.6707342367256637,
+    "pr_auc": 0.2994843898366114,
+    "brier": 0.43943563315530715
+   }
+  }
+ },
+ "enron_probe": {
+  "share_ham_test": 0.4210950080515298,
+  "share_spam_test": 0.0,
+  "share_ham_train": 0.44442207007652035,
+  "share_spam_train": 0.0,
+  "share_enron_among_fp": 0.0,
+  "deletion": {
+   "n": 523,
+   "Logistic Regression": {
+    "mean_delta": 0.03153641790834346,
+    "flips_to_spam": 2
+   },
+   "Random Forest": {
+    "mean_delta": 0.0534340727265419,
+    "flips_to_spam": 10
+   },
+   "XGBoost": {
+    "mean_delta": 0.051948342472314835,
+    "flips_to_spam": 19
+   },
+   "Hybrid Ensemble": {
+    "mean_delta": 0.04559102067109851,
+    "flips_to_spam": 11
+   }
+  },
+  "insertion": {
+   "n": 1158,
+   "Logistic Regression": {
+    "mean_delta": -0.06616206648297876,
+    "flips_to_ham": 52,
+    "detected_before": 1147
+   },
+   "Random Forest": {
+    "mean_delta": -0.3012385548619377,
+    "flips_to_ham": 289,
+    "detected_before": 1141
+   },
+   "XGBoost": {
+    "mean_delta": -0.763399064540863,
+    "flips_to_ham": 1045,
+    "detected_before": 1140
+   },
+   "Hybrid Ensemble": {
+    "mean_delta": -0.3763969020106272,
+    "flips_to_ham": 409,
+    "detected_before": 1151
+   }
+  }
+ }
+}
