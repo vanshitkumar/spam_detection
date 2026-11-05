@@ -129,19 +129,21 @@ largest category (191,561 complaints)~\cite{fbi2026ic3}. Large language models
 cost~\cite{heiding2024devising,yao2024survey}, and scams have followed banking
 and one-time-password traffic onto SMS~\cite{mehmood2024smishing}.
 
-Machine-learning filters intercept most of this traffic, but they are usually
-black boxes: a message is blocked and nobody can say why. High accuracy can
-hide shortcuts, spurious cues that happen to separate the classes in one
-dataset~\cite{du2024shortcut}, and although explainable AI (XAI) now offers a
-broad toolkit~\cite{longo2024xai}, explanations in spam filtering are mostly
-shown as illustrations rather than tested for faithfulness~\cite{lyu2024faithful}
-or used to audit the model. Most detectors also serve a single channel,
-although SMS and e-mail differ sharply (a median of 12 versus 155 words and
-12\% versus 48\% spam in the corpora used here), and comparisons on
-near-saturated benchmarks rarely report uncertainty.
+Most of this traffic is caught by machine-learning filters, yet these filters
+typically operate as black boxes: a message gets blocked, and no one can
+explain the reason. Strong accuracy figures may conceal shortcuts, spurious
+cues that happen to split the classes in a particular
+dataset~\cite{du2024shortcut}. Explainable AI (XAI) now provides a wide range
+of tools~\cite{longo2024xai}, but in spam filtering the explanations are
+usually presented as illustrations; they are rarely checked for
+faithfulness~\cite{lyu2024faithful} or applied to audit the model itself. In
+addition, most detectors handle only one channel, even though SMS and e-mail
+are very different (in the corpora used here, the median length is 12 versus
+155 words and the spam share is 12\% versus 48\%), and comparisons on nearly
+saturated benchmarks seldom report any uncertainty.
 
-We address these gaps with an interpretable multi-modal framework, where
-\emph{modality} denotes the messaging channel (SMS or e-mail). Our
+This paper tackles these gaps with an interpretable multi-modal framework, in
+which \emph{modality} refers to the messaging channel (SMS or e-mail). Our
 contributions are:
 \begin{enumerate}
   \item a CPU-only pipeline with one specialist per channel: readable
@@ -175,35 +177,40 @@ is growing~\cite{mambina2024swahili}, and Salman \emph{et al.} released a new
 dataset and analysed spammers' evasive techniques~\cite{salman2024evasive}.
 
 \emph{E-mail spam and phishing.} The Enron-Spam corpus~\cite{metsis2006spam}
-remains a standard e-mail benchmark. Fine-tuned transformers and LLMs dominate
-recent work~\cite{jamal2024improved,roumeliotis2024next,uddin2026explainable,koide2026chatspamdetector};
-Mel\'{e}ndez \emph{et al.} found transformers ahead of traditional models for
-phishing e-mail, by a small margin~\cite{melendez2024comparative}, and
-meta-learner ensembles remain competitive~\cite{kshirsagar2025metalearner}.
-Hadi \emph{et al.} target both channels with a deep--shallow
-hybrid~\cite{hadi2026hybrid}. LLMs can author effective phishing at
-scale~\cite{heiding2024devising}, and Opara \emph{et al.} showed that such
-messages can bypass major webmail filters but are detectable with stylometric
-features~\cite{opara2025evaluating}.
+remains a standard e-mail benchmark. Recent studies are dominated by
+fine-tuned transformers and
+LLMs~\cite{jamal2024improved,roumeliotis2024next,uddin2026explainable,koide2026chatspamdetector}.
+Mel\'{e}ndez \emph{et al.} reported that transformers beat traditional models
+on phishing e-mail, though only by a small
+margin~\cite{melendez2024comparative}, while ensembles built on meta-learners
+are still competitive~\cite{kshirsagar2025metalearner}. Hadi \emph{et al.}
+cover both channels using a hybrid of deep and shallow
+models~\cite{hadi2026hybrid}. LLMs are capable of producing convincing
+phishing messages at scale~\cite{heiding2024devising}, and Opara \emph{et al.}
+demonstrated that such messages slip past major webmail filters yet can still
+be detected using stylometric features~\cite{opara2025evaluating}.
 
-\emph{Explainability and shortcuts.} LIME fits a local surrogate around one
-prediction~\cite{ribeiro2016lime}; SHAP assigns additive Shapley
-attributions~\cite{lundberg2017shap}, computed exactly for trees by
-TreeSHAP~\cite{lundberg2020treeshap}. Explanations have accompanied smishing
-detectors~\cite{prince2026explainable,jasim2026fuzzy}, guided feature
-selection for spam~\cite{shambour2025quantum}, and been compared on boosting
-models, where SHAP was more stable globally than LIME~\cite{panthi2026shaplime}.
-They are not trustworthy by default: faithfulness must be
-measured~\cite{lyu2024faithful}, explainers often disagree~\cite{krishna2024disagreement},
-and many challenges remain open~\cite{longo2024xai}. Shortcut learning, the
-exploitation of spurious dataset cues, is well documented in
-NLP~\cite{du2024shortcut,dogra2024shortcut}; spam corpora are vulnerable
-because legitimate mail often comes from a single organisation.
+\emph{Explainability and shortcuts.} LIME builds a local surrogate model
+around a single prediction~\cite{ribeiro2016lime}, whereas SHAP provides
+additive Shapley attributions~\cite{lundberg2017shap}, which TreeSHAP computes
+exactly for tree models~\cite{lundberg2020treeshap}. Explanations have been
+attached to smishing detectors~\cite{prince2026explainable,jasim2026fuzzy},
+used to guide feature selection for spam~\cite{shambour2025quantum}, and
+compared across boosting models, where SHAP proved more stable at the global
+level than LIME~\cite{panthi2026shaplime}. Such explanations cannot simply be
+trusted: their faithfulness has to be measured~\cite{lyu2024faithful},
+different explainers frequently disagree~\cite{krishna2024disagreement}, and
+several challenges are still unresolved~\cite{longo2024xai}. Shortcut
+learning, where a model exploits spurious cues in the dataset, is well known
+in NLP~\cite{du2024shortcut,dogra2024shortcut}, and spam corpora are
+especially exposed to it because the legitimate mail often originates from a
+single organisation.
 
-Table~\ref{tab:related} contrasts representative recent studies. Most address
-one channel and use explanations mainly as illustrations. We combine two
-channel specialists with a dual explanation layer, test its faithfulness, use
-it to audit the model, and compare learners with paired significance tests.
+Table~\ref{tab:related} compares representative recent studies. The majority
+deal with one channel only and treat explanations mainly as illustrations. In
+contrast, we pair two channel specialists with a dual explanation layer,
+verify its faithfulness, employ it to audit the model, and compare the
+learners using paired significance tests.
 
 \begin{table*}[!t]
 \caption{Representative Recent Studies Compared With This Work}
@@ -284,10 +291,11 @@ scam signals, and as readable tokens they can appear in an explanation; no
 stemming is applied, so every explained token is a recognisable word. The text
 is vectorised with sublinear TF--IDF over uni- and bi-grams (3,000 terms with
 $\mathrm{df}\ge2$ for SMS, 5,000 with $\mathrm{df}\ge3$ for e-mail). Fifteen
-stylometric statistics computed on the \emph{raw} message
-(Table~\ref{tab:features}) are scaled by their training maximum and appended,
-giving 3,015 and 5,015 dimensions; their upper-case names keep them distinct
-from vocabulary in every explanation.
+stylometric statistics are computed on the \emph{raw} message
+(Table~\ref{tab:features}), divided by their maximum on the training set and
+appended to the vector, yielding 3,015 and 5,015 dimensions; because their
+names are written in upper case, they remain clearly separate from vocabulary
+terms in every explanation.
 
 \begin{table}[!t]
 \caption{Engineered Stylometric Features (Computed on the Raw Message)}
@@ -330,9 +338,9 @@ real, explainable message. The ensemble averages the learners' probabilities,
 \end{equation}
 with $w_m$ proportional to each learner's mean F1 in stratified 5-fold
 cross-validation on the training split, and predicts spam when $p\ge0.5$. The
-weights are 0.3329/0.3331/0.3340 (LR/RF/XGB) for SMS and 0.3356/0.3311/0.3333
-for e-mail, so any benefit comes from diversity rather than from a dominant
-member.
+resulting weights are 0.3329/0.3331/0.3340 (LR/RF/XGB) on SMS and
+0.3356/0.3311/0.3333 on e-mail, so whatever gain the ensemble achieves stems
+from the diversity of its members rather than from any single dominant one.
 
 \subsection{Channel Router}
 
@@ -355,8 +363,9 @@ critical: XGBoost treats entries absent from a sparse matrix as
 \emph{missing}, whereas a densified copy turns them into zeros that follow
 different branches. Densifying the input before explaining therefore explains
 a different function: it changes the XGBoost verdict for 729 of 1,032 SMS and
-1,182 of 2,400 e-mail test messages. All attributions here use XGBoost's
-native TreeSHAP on the sparse matrix the model actually scores.
+1,182 of 2,400 e-mail test messages. Every attribution reported here is
+therefore obtained with XGBoost's built-in TreeSHAP, applied to the same
+sparse matrix that the model actually scores.
 
 %==============================================================================
 \section{Experimental Setup}\label{sec:setup}
@@ -608,15 +617,17 @@ which the decision genuinely depends.
 
 \subsection{Explanations as an Audit Tool: A Corpus Shortcut}
 
-The token \tok{enron} occurs in 44.4\% of legitimate training and 42.1\% of
-legitimate test e-mails but in \emph{no} spam: every legitimate message is
-internal Enron correspondence, so the company name is a one-sided proxy for
-ham. Its mean TreeSHAP contribution is $-3.95$ log-odds when present versus
-$+0.66$ when absent; other identity cues such as the first name \emph{vince}
-also rank highly, and none of the ensemble's 35 false positives contains the
-token. Table~\ref{tab:shortcut} quantifies the risk. Deleting the token from
-523 legitimate e-mails flips only 11 verdicts, but \emph{appending} the single
-word to spam flips 409 of 1,151 detections (35.5\%). XGBoost alone is evaded on
+The token \tok{enron} appears in 44.4\% of the legitimate training e-mails and
+42.1\% of the legitimate test e-mails, but never in spam: since all legitimate
+messages are internal Enron correspondence, the company name acts as a
+one-sided proxy for ham. Its average TreeSHAP contribution is $-3.95$ log-odds
+when the token is present and $+0.66$ when it is absent; other identity cues,
+such as the first name \emph{vince}, also rank near the top, and the token
+does not appear in any of the ensemble's 35 false positives.
+Table~\ref{tab:shortcut} puts a number on the risk. Removing the token from
+523 legitimate e-mails changes only 11 verdicts, whereas \emph{adding} this
+one word to spam messages overturns 409 of 1,151 detections (35.5\%).
+XGBoost alone is evaded on
 91.7\% of messages, RF on 25.3\% and LR on 4.5\%, so the heterogeneous ensemble
 is far more robust than its boosted member, yet not immune. The shortcut is
 invisible in Tables~\ref{tab:results} and~\ref{tab:significance}; only the
@@ -666,14 +677,15 @@ prediction can be explained interactively.
 \section{Discussion and Limitations}\label{sec:discussion}
 %==============================================================================
 
-All learners exceed 97\% accuracy, and a regularised linear model on
-well-designed features is as accurate as the ensemble, consistent with the
-finding that representation matters more than classifier complexity for SMS
-spam~\cite{sahin2026revisiting}. The ensemble's value lies in better ranking
-metrics, a precision-first SMS profile, significant gains over both tree
-models on e-mail and, above all, robustness to the shortcut attack. The
-\tok{enron} shortcut is a property of the corpus rather than the pipeline, yet
-a black-box deployment would have shipped it silently. Global explanations are
+Every learner reaches more than 97\% accuracy, and a regularised linear model
+trained on well-designed features matches the ensemble's accuracy, which
+agrees with the observation that, for SMS spam, the representation matters
+more than the complexity of the classifier~\cite{sahin2026revisiting}. What
+the ensemble adds is stronger ranking metrics, a precision-first profile on
+SMS, significant improvements over both tree models on e-mail and, most
+importantly, resistance to the shortcut attack. The \tok{enron} shortcut
+belongs to the corpus rather than to the pipeline, but a black-box deployment
+would have shipped it without anyone noticing. Global explanations are
 therefore an auditing instrument, but they must themselves be
 validated~\cite{lyu2024faithful}: the sparse/dense pitfall yields plausible
 SHAP plots of a function the deployed model never computes. We recommend

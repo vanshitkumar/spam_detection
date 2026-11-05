@@ -8,6 +8,8 @@ the sparse features and renders, in the style of src/train.py:
 
   figures/sms_shap_beeswarm.png, figures/email_shap_beeswarm.png
       global summaries over the same 800 held-out messages as src/train.py
+  figures/sms_shap_importance.png, figures/email_shap_importance.png
+      the 15 features with the largest mean |SHAP| on those messages
   figures/sms_shap_waterfall.png
       local explanation of the exhibit SMS used in Chapter 4
 
@@ -37,7 +39,7 @@ from sklearn.model_selection import train_test_split
 from src.config import RANDOM_STATE, SHAP_BACKGROUND_SIZE, TEST_SIZE
 from src.data_loader import load_processed
 from src.models import SpamDetector
-from src.plotting import INK, INK_2, SURFACE, apply_style, save_fig
+from src.plotting import INK, INK_2, SURFACE, apply_style, save_fig, style_axes
 
 MODALITY_LABEL = {"sms": "SMS", "email": "Email"}
 EXHIBIT = ("URGENT! You have WON a £2,000 cash prize GUARANTEED. "
@@ -81,6 +83,18 @@ def beeswarm(modality: str, detector: SpamDetector) -> None:
                  x=0.02, ha="left", fontsize=11, fontweight="bold", color=INK)
     fig.tight_layout(rect=(0, 0, 1, 0.94))
     save_fig(fig, FIGURES / f"{modality}_shap_beeswarm.png")
+
+    # global importance (mean |SHAP|), same style as src/train.py
+    imp = np.abs(exp.values).mean(axis=0)
+    order = np.argsort(imp)[-15:]
+    fig, ax = plt.subplots(figsize=(7.6, 5.2))
+    ax.barh(np.arange(len(order)), imp[order], height=0.66, color="#2a78d6",
+            edgecolor=SURFACE, linewidth=2)
+    ax.set_yticks(np.arange(len(order)), [detector.feature_names[i] for i in order])
+    ax.set_xlabel("mean |SHAP value|  (impact on spam log-odds)")
+    ax.set_title(f"{MODALITY_LABEL[modality]} — global feature importance (SHAP)")
+    style_axes(ax, xgrid=True, ygrid=False)
+    save_fig(fig, FIGURES / f"{modality}_shap_importance.png")
 
 
 def waterfall(detector: SpamDetector) -> None:
