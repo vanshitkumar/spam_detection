@@ -8,7 +8,7 @@ Framework Using Explainable AI and Machine Learning*.
 | `report.tex` | Report source (pdfLaTeX) |
 | `report.pdf` | Compiled report |
 | `figures/` | All figures referenced by the report |
-| `scripts/make_shap_figures.py` | Regenerates the three SHAP figures with exact TreeSHAP on the sparse features the model scores |
+| `scripts/make_shap_figures.py` | Regenerates the five SHAP figures (beeswarms, importance plots, waterfall) with exact TreeSHAP on the sparse features the model scores |
 | `templates/cu_format_sample_report.tex` | Sample report in the university format (reference only; not part of this report) |
 
 ## Build
